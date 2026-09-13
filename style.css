@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    color: #17202a;
+}
+
+.top {
+    text-align: center;
+    padding: 35px 15px;
+    background: #17202a;
+    color: white;
+}
+
+.top h1 {
+    margin: 0;
+    font-size: clamp(25px, 5vw, 45px);
+}
+
+.top p {
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+main {
+    width: min(1100px, 94%);
+    margin: 25px auto;
+}
+
+.box {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.box h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border: 2px solid #d6dce3;
+    border-radius: 12px;
+    resize: vertical;
+    font-size: 16px;
+}
+
+.controls,
+.equation-input,
+.graph-buttons,
+.examples {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+input,
+select,
+button {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccd3da;
+    font-size: 16px;
+}
+
+input {
+    min-width: 150px;
+}
+
+button {
+    background: #17202a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.examples button {
+    background: #34495e;
+}
+
+.equation-input input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.parameters {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: #f5f7f9;
+    border-radius: 12px;
+}
+
+.parameters label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.parameters input {
+    min-width: 180px;
+}
+
+.result {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f5f7f9;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+.graph-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    background: white;
+}
+
+#equationCanvas {
+    height: 600px;
+    border: 1px solid #dce2e8;
+}
+
+#statisticsCanvas {
+    height: 500px;
+    margin-top: 20px;
+    border: 1px solid #dce2e8;
+}
+
+.solution {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #f5f7f9;
+    font-size: 19px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #17202a;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .box {
+        padding: 17px;
+    }
+
+    .box h2 {
+        font-size: 23px;
+    }
+
+    #equationCanvas {
+        height: 450px;
+    }
+
+    #statisticsCanvas {
+        height: 400px;
+    }
+
+}
