@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -44,6 +48,10 @@ main {
     font-size: 28px;
 }
 
+.box h3 {
+    margin-top: 25px;
+}
+
 textarea {
     width: 100%;
     height: 150px;
@@ -52,6 +60,7 @@ textarea {
     border-radius: 12px;
     resize: vertical;
     font-size: 16px;
+    font-family: Arial, sans-serif;
 }
 
 .controls,
@@ -90,6 +99,10 @@ button:hover {
     opacity: 0.9;
 }
 
+button:active {
+    transform: scale(0.97);
+}
+
 .examples button {
     background: #34495e;
 }
@@ -112,6 +125,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .parameters input {
@@ -124,6 +138,14 @@ button:hover {
     background: #f5f7f9;
     border-radius: 12px;
     font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.coordinate-box {
+    margin: 15px 0;
+    padding: 14px;
+    background: #f5f7f9;
+    border-radius: 12px;
 }
 
 .graph-container {
@@ -141,6 +163,8 @@ canvas {
 #equationCanvas {
     height: 600px;
     border: 1px solid #dce2e8;
+    touch-action: none;
+    cursor: crosshair;
 }
 
 #statisticsCanvas {
@@ -149,12 +173,66 @@ canvas {
     border: 1px solid #dce2e8;
 }
 
+.stats-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f5f7f9;
+    border-radius: 15px;
+}
+
+.stats-box h3 {
+    margin-top: 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.stats-grid div {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e1e5e9;
+}
+
+.stats-grid span {
+    display: block;
+    color: #66717c;
+    font-size: 14px;
+}
+
+.stats-grid strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
 .solution {
     margin-top: 20px;
     padding: 18px;
     border-radius: 12px;
     background: #f5f7f9;
     font-size: 19px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.solution .step {
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 8px;
+}
+
+.solution .answer {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #17202a;
+    color: white;
+    font-weight: bold;
 }
 
 footer {
@@ -162,6 +240,26 @@ footer {
     padding: 25px;
     background: #17202a;
     color: white;
+}
+
+@media (max-width: 700px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .parameters {
+        gap: 15px;
+    }
+
+    .parameters label {
+        width: 100%;
+    }
+
+    .parameters input {
+        flex: 1;
+        min-width: 130px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -182,4 +280,11 @@ footer {
         height: 400px;
     }
 
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    button {
+        padding: 11px 13px;
+    }
 }
