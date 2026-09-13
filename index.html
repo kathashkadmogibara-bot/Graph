@@ -7,7 +7,6 @@
     <title>MOGIBARA Graph Studio</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -20,7 +19,7 @@
 <main>
 
     <!-- ============================= -->
-    <!-- STATISTICS GRAPH -->
+    <!-- STATISTICS -->
     <!-- ============================= -->
 
     <section class="box">
@@ -28,8 +27,8 @@
         <h2> Statistics Info Graph</h2>
 
         <p>
-            Enter your information below.
-            Use one item per line:
+            Enter one item per line:
+            <b>Subject,Value</b>
         </p>
 
         <textarea id="statisticsData">Math,80
@@ -43,13 +42,15 @@ Computer,95</textarea>
                 <option value="bar">Bar Graph</option>
                 <option value="line">Line Graph</option>
                 <option value="point">Point Graph</option>
+                <option value="pie">Pie Chart</option>
+                <option value="histogram">Histogram</option>
             </select>
 
             <input
                 id="statisticsTitle"
                 type="text"
-                placeholder="Graph title"
                 value="My Statistics"
+                placeholder="Graph title"
             >
 
             <button onclick="createStatisticsGraph()">
@@ -60,6 +61,46 @@ Computer,95</textarea>
 
         <canvas id="statisticsCanvas"></canvas>
 
+        <div class="stats-box">
+
+            <h3>📈 Statistics</h3>
+
+            <div class="stats-grid">
+
+                <div>
+                    <span>Mean</span>
+                    <strong id="meanValue">-</strong>
+                </div>
+
+                <div>
+                    <span>Median</span>
+                    <strong id="medianValue">-</strong>
+                </div>
+
+                <div>
+                    <span>Mode</span>
+                    <strong id="modeValue">-</strong>
+                </div>
+
+                <div>
+                    <span>Minimum</span>
+                    <strong id="minValue">-</strong>
+                </div>
+
+                <div>
+                    <span>Maximum</span>
+                    <strong id="maxValue">-</strong>
+                </div>
+
+                <div>
+                    <span>Range</span>
+                    <strong id="rangeValue">-</strong>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
 
@@ -69,16 +110,34 @@ Computer,95</textarea>
 
     <section class="box">
 
-        <h2>📐 Equation Graph</h2>
+        <h2> Equation Graph</h2>
 
         <p>Examples:</p>
 
         <div class="examples">
-            <button onclick="setEquation('y=x')">y = x</button>
-            <button onclick="setEquation('y=x^2')">y = x²</button>
-            <button onclick="setEquation('y=2*x+1')">y = 2x + 1</button>
-            <button onclick="setEquation('y=sin(x)')">y = sin(x)</button>
+
+            <button onclick="setEquation('y=x')">
+                y = x
+            </button>
+
+            <button onclick="setEquation('y=x^2')">
+                y = x²
+            </button>
+
+            <button onclick="setEquation('y=2*x+1')">
+                y = 2x + 1
+            </button>
+
+            <button onclick="setEquation('y=sin(x)')">
+                y = sin(x)
+            </button>
+
+            <button onclick="setEquation('y=a*x+b')">
+                y = ax + b
+            </button>
+
         </div>
+
 
         <div class="equation-input">
 
@@ -104,6 +163,7 @@ Computer,95</textarea>
 
             <label>
                 A
+
                 <input
                     id="parameterA"
                     type="range"
@@ -113,11 +173,14 @@ Computer,95</textarea>
                     value="1"
                     oninput="updateParameter()"
                 >
+
                 <span id="aValue">1</span>
             </label>
 
+
             <label>
                 B
+
                 <input
                     id="parameterB"
                     type="range"
@@ -127,13 +190,12 @@ Computer,95</textarea>
                     value="0"
                     oninput="updateParameter()"
                 >
+
                 <span id="bValue">0</span>
             </label>
 
         </div>
 
-
-        <!-- EQUATION RESULT -->
 
         <div class="result">
 
@@ -146,6 +208,19 @@ Computer,95</textarea>
         </div>
 
 
+        <!-- COORDINATES -->
+
+        <div class="coordinate-box">
+
+             Coordinates:
+
+            <strong id="coordinates">
+                Move your finger or mouse over the graph
+            </strong>
+
+        </div>
+
+
         <!-- GRAPH -->
 
         <div class="graph-container">
@@ -154,8 +229,6 @@ Computer,95</textarea>
 
         </div>
 
-
-        <!-- GRAPH BUTTONS -->
 
         <div class="graph-buttons">
 
@@ -183,8 +256,9 @@ Computer,95</textarea>
         <h2> Equation Solver</h2>
 
         <p>
-            Enter a simple equation such as:
-            <b>2*x+4=10</b>
+            Examples:
+            <b>2*x+4=10</b>,
+            <b>2*x+3=4*x-9</b>
         </p>
 
         <div class="equation-input">
@@ -201,8 +275,42 @@ Computer,95</textarea>
 
         </div>
 
+
         <div id="solution" class="solution">
             Answer will appear here.
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- EQUATION BALANCER -->
+    <!-- ============================= -->
+
+    <section class="box">
+
+        <h2>⚖ Equation Balancer</h2>
+
+        <p>
+            Enter a simple linear equation.
+        </p>
+
+        <div class="equation-input">
+
+            <input
+                id="balanceEquation"
+                type="text"
+                placeholder="2*x+4=10"
+            >
+
+            <button onclick="balanceEquation()">
+                BALANCE
+            </button>
+
+        </div>
+
+        <div id="balanceResult" class="solution">
+            Steps will appear here.
         </div>
 
     </section>
@@ -211,7 +319,9 @@ Computer,95</textarea>
 
 
 <footer>
+
     <p>© MOGIBARA WEBSITE</p>
+
 </footer>
 
 
